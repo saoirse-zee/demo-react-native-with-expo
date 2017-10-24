@@ -5,20 +5,20 @@ import { TabNavigator, TabBarBottom } from 'react-navigation';
 
 import Colors from '../constants/Colors';
 
-import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import BookingScreen from '../screens/BookingScreen';
+import ListScreen from '../screens/ListScreen';
+import ProfileScreen from '../screens/ProfileScreen';
 
 export default TabNavigator(
   {
-    Home: {
-      screen: HomeScreen,
+    Booking: {
+      screen: BookingScreen,
     },
-    Links: {
-      screen: LinksScreen,
+    Recent: {
+      screen: ListScreen,
     },
-    Settings: {
-      screen: SettingsScreen,
+    Profile: {
+      screen: ProfileScreen,
     },
   },
   {
@@ -27,20 +27,20 @@ export default TabNavigator(
         const { routeName } = navigation.state;
         let iconName;
         switch (routeName) {
-          case 'Home':
+          case 'Booking':
             iconName = Platform.OS === 'ios'
-              ? `ios-information-circle${focused ? '' : '-outline'}`
-              : 'md-information-circle';
+              ? `ios-flash${focused ? '' : '-outline'}`
+              : 'md-flash';
             break;
-          case 'Links':
+          case 'Recent':
             iconName = Platform.OS === 'ios'
-              ? `ios-link${focused ? '' : '-outline'}`
-              : 'md-link';
+              ? `ios-list${focused ? '' : '-outline'}`
+              : 'md-list';
             break;
-          case 'Settings':
+          case 'Profile':
             iconName = Platform.OS === 'ios'
-              ? `ios-options${focused ? '' : '-outline'}`
-              : 'md-options';
+              ? `ios-contact${focused ? '' : '-outline'}`
+              : 'md-contact';
         }
         return (
           <Ionicons
