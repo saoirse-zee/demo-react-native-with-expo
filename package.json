@@ -6,7 +6,8 @@
   "license": "",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "test": "node ./node_modules/jest/bin/jest.js --watch"
+    "test": "node ./node_modules/jest/bin/jest.js --watch",
+    "flow": "flow"
   },
   "jest": {
     "preset": "jest-expo"
@@ -14,6 +15,7 @@
   "dependencies": {
     "@expo/samples": "^2.0.2",
     "expo": "^21.0.0",
+    "flow-bin": "^0.57.3",
     "moment": "^2.19.1",
     "react": "16.0.0-alpha.12",
     "react-native": "https://github.com/expo/react-native/archive/sdk-21.0.2.tar.gz",

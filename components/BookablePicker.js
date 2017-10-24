@@ -1,8 +1,22 @@
-import React from 'react'
+// @flow
+
+import * as React from 'react'
+// $FlowFixMe: Not sure why it's complaining about a missing module
 import { Picker, Text, View, ScrollView } from 'react-native'
 import BookableItem from './BookableItem'
 
-const BookablePicker = ({ selectedBookable, bookables, onValueChange }) => (
+type Bookable = {
+  label: string,
+  value: string,
+}
+
+type Props = {
+  selectedBookable: string,
+  bookables: Array<Bookable>,
+  onValueChange: () => void,
+}
+
+const BookablePicker = ({ selectedBookable, bookables, onValueChange }: Props) => (
   <View>
     <ScrollView>
       {bookables.map(bookable => (
