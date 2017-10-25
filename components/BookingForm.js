@@ -1,5 +1,5 @@
-import React from 'react';
-const moment = require('moment');
+import * as React from 'react';
+import Moment from 'moment'
 import { TouchableHighlight, Text, View, StyleSheet, Modal, Button } from 'react-native';
 import StudioPicker from './StudioPicker';
 import TimePicker from './TimePicker';
@@ -8,16 +8,14 @@ import BookitConfirmationModal from './BookitConfirmationModal';
 import { MonoText } from './StyledText';
 import { bookables, studios } from '../sampleData'
 import { bookitBlue } from '../colors'
-
-// const serverUrl = 'http://localhost:3000'
-const serverUrl = 'https://bookit.now.sh/'
+import { serverUrl } from '../constants/Server'
 
 export default class BookingForm extends React.Component {
   state = {
     studio: 'london',
-    start: moment(),
-    end: moment().add(1, 'hour'),
-    bookable: bookables[0].value, // Init with first item selected.
+    start: Moment(),
+    end: Moment().add(1, 'hour'),
+    bookable: bookables[0], // Init with first item selected.
     isModalVisible: false
   }
 
@@ -48,6 +46,7 @@ export default class BookingForm extends React.Component {
       end: this.state.end,
       bookable: this.state.bookable,
     }
+    console.log(booking);
 
     return (
       <View style={styles.container}>
@@ -58,7 +57,7 @@ export default class BookingForm extends React.Component {
           success={this.state.bookingSucceeded}
         />
         <View style={styles.content}>
-         <Text style={styles.title}>Book something</Text>
+         <Text style={styles.title}>Book a room</Text>
          <StudioPicker
            selectedStudio={this.state.studio}
            studios={studios}
@@ -92,12 +91,6 @@ export default class BookingForm extends React.Component {
        <View style={styles.button}>
          <TouchableHighlight
            onPress={() => {
-             const booking = {
-               studio: this.state.studio,
-               start: this.state.start,
-               end: this.state.end,
-               bookable: this.state.bookable,
-             }
              const onSuccess = () => this.setState({ isModalVisible: true, bookingSucceeded: true })
              const onFailure = () => this.setState({ isModalVisible: true, bookingSucceeded: false })
              this._bookit(booking, onSuccess, onFailure)

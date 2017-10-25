@@ -6,7 +6,7 @@ const BookitConfirmationModal = ({ visible, booking, onOkayPress, success }) => 
   const successMessage = (
     <View>
       <Text style={styles.title}>You booked it!</Text>
-      <Text>You have the {booking.bookable} in {booking.studio} from {booking.start.format('dddd MMM DD h:mm a')} to {booking.end.format('dddd MMM DD h:mm a')}.</Text>
+      <Text>You have the {booking.bookable.label} in {booking.studio} from {booking.start.format('dddd MMM DD h:mm a')} to {booking.end.format('dddd MMM DD h:mm a')}.</Text>
       <View style={styles.cancelButton}>
         <TouchableHighlight onPress={() => {console.log('Implement me.')}}>
           <Text style={styles.cancelButtonText}>Oops. Cancel that.</Text>
