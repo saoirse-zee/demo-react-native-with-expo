@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "demo-expo",
+    "name": "demo-react-native-with-expo",
     "description": "No description",
-    "slug": "demo-expo",
+    "slug": "demo-react-native-with-expo",
     "privacy": "public",
     "sdkVersion": "21.0.0",
     "version": "1.0.0",
